@@ -14,7 +14,7 @@ const Historique = () => {
   }, []);
 
   return (
-    <div className="p-4" style={{ marginLeft: '260px', backgroundColor: '#0f111a', minHeight: '100vh', color: '#fff' }}>
+    <div className="p-4" style={{ backgroundColor: '#0f111a', minHeight: '100vh', color: '#fff' }}>
       <h2 className="fw-bold mb-4">Historique des Mouvements 📜</h2>
       
       <div className="card border-0 shadow-lg p-4 rounded-4" style={{ backgroundColor: '#1e2132' }}>

@@ -9,9 +9,25 @@ class Article extends Model
 {
     use HasFactory;
 
-    // Hada hwa s-s-tar li ghadi i-7el l-mouchkil d 500
-    protected $fillable = ['nom', 'categorie', 'quantite', 'prix', 'image_url'];
+  protected $fillable = ['nom', 'categorie', 'quantite', 'prix', 'client_id', 'image', 'variantes'];
+  protected $casts = [
+    'image' => 'array',
+    'variantes' => 'array', // <--- Zidi hadi darouri!
+
+];
+
+
     public function mouvements() {
     return $this->hasMany(Mouvement::class);
 }
+public function client() {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+
+    // Relation m3a tsawer
+    public function images() {
+        return $this->hasMany(Image::class); 
+    }
+    // f Model Article.php
+public $timestamps = false;
 }

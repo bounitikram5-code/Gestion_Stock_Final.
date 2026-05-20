@@ -13,7 +13,7 @@ const Dashboard = () => {
         allArticles: [] 
     });
 
-    // 1. جلب البيانات من الـ API
+    
     useEffect(() => {
         axios.get('http://localhost:8000/api/articles')
             .then(res => {
@@ -33,7 +33,7 @@ const Dashboard = () => {
             .catch(err => console.error("Erreur API:", err));
     }, []);
 
-    // 2. وظيفة تصدير PDF
+    
     const exportToPDF = () => {
         const doc = new jsPDF();
         doc.setFontSize(18);
@@ -45,7 +45,7 @@ const Dashboard = () => {
         const tableColumn = ["Article", "Quantite", "Statut"];
         const tableRows = [];
 
-        // جمع السلعة اللي فيها تنبيه (Bas + Rupture)
+        
         const alerts = stats.lowStock.concat(stats.allArticles.filter(a => a.quantite <= 0));
         
         alerts.forEach(art => {
@@ -67,7 +67,7 @@ const Dashboard = () => {
         doc.save(`Rapport_Alertes_Ikram.pdf`);
     };
 
-    // إعدادات المبيانات
+  
     const pieData = [
         { name: 'Normal', value: stats.totalArticles - stats.lowStock.length - stats.outOfStock },
         { name: 'Stock Bas', value: stats.lowStock.length },
@@ -81,7 +81,7 @@ const Dashboard = () => {
     }));
 
     return (
-        <div style={{ marginLeft: '260px', backgroundColor: '#eef4f8', minHeight: '100vh', padding: '30px', fontFamily: 'sans-serif' }}>
+        <div style={{ backgroundColor: '#eef4f8', minHeight: '100vh', padding: '30px', fontFamily: 'sans-serif' }}>
             
             {/* Header */}
             <div className="d-flex justify-content-between align-items-center mb-4">

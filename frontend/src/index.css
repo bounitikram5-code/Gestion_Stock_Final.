@@ -1,25 +1,26 @@
+/* index.css */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* Had l-partie hiya l-mohimma bach ma-i-t-da7ch l-sidebar */
 @media (max-width: 768px) {
   .sidebar-container {
+    position: fixed; /* Darouri f l-mobile */
+    top: 0;
+    left: 0;
+    height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    width: 250px !important; /* Ghadi n-9ssou l-3ard chwiya f télé */
+    width: 250px !important;
+    z-index: 1050;
   }
 
-  /* Fach i-welli l-sidebar kheddam (men be3d) */
-  .sidebar-container.active {
+  /* K-n-khdmu b 'open' hit hiya li derti f Sidebar.js */
+  .sidebar-container.open {
     transform: translateX(0);
   }
 }

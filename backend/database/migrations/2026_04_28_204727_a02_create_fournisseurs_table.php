@@ -11,14 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('fournisseurs', function (Blueprint $table) {
-        $table->id();
-        $table->string('nom');
-        $table->string('telephone')->nullable();
-        $table->string('email')->nullable();
-        $table->string('ville')->nullable();
-        $table->timestamps();
-    });
+        //
     }
 
     /**
@@ -26,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fournisseurs');
+        //
     }
 };

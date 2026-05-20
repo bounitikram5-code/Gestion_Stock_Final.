@@ -25,7 +25,7 @@ const Fournisseurs = () => {
   };
 
   return (
-    <div className="p-4" style={{ marginLeft: '260px', backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
+    <div className="p-4" style={{  backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <h2 className="mb-4 fw-bold">🚚 Gestion des Fournisseurs</h2>
       
       {/* 🟦 Stats Card (Kima f image ff7a68.png) */}

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //
         Schema::create('mouvements', function (Blueprint $table) {
     $table->id();
-    $table->foreignId('article_id')->constrained()->onDelete('cascade');
-    $table->string('type'); // Entrée aw Sortie
+    $table->foreignId('article_id')->constrained('articles')->onDelete('cascade');
+    $table->string('type');
     $table->integer('quantite');
-    $table->string('tiers')->nullable(); // Client aw Fournisseur
-    $table->date('date');
     $table->timestamps();
 });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mouvements');
+        //
     }
 };
