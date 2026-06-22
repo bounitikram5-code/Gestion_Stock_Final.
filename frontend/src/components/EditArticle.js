@@ -19,7 +19,7 @@ const EditArticle = () => {
                 
                 let data = res.data.variantes;
                 if (data) {
-                    // Force parsing ila kān string, o t-aked blli stocks dima objet
+                   
                     let parsedData = typeof data === 'string' ? JSON.parse(data) : data;
                     const sanitized = parsedData.map(v => ({
                         ...v,
@@ -47,7 +47,7 @@ const EditArticle = () => {
 
     const toggleTaille = (idxVar, taille) => {
         const newVariantes = [...variantes];
-        // Signture dyal safety bach may-t-be9ch l-code
+      
         if (!newVariantes[idxVar].stocks) newVariantes[idxVar].stocks = {};
 
         if (newVariantes[idxVar].stocks[taille] !== undefined) {
@@ -68,7 +68,7 @@ const EditArticle = () => {
         formData.append('_method', 'PUT'); 
 
         const variantesData = variantes.map((v, index) => {
-            // Ila kkant t-swira jdiida (File), n-siftoha b-smiya khassa
+            
             if (v.image instanceof File) {
                 formData.append(`image_variante_${index}`, v.image);
             }

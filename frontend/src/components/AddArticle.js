@@ -17,12 +17,11 @@ const AddArticle = () => {
     const [categorie, setCategorie] = useState('');
     const [images, setImages] = useState([]);
 
-    // 1. Njibo ga3 les clients f l-bdia
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/clients').then(res => setClients(res.data));
     }, []);
 
-    // 2. Mli i-t-khtar l-client, njibo les articles dialo
+    
     useEffect(() => {
         if (selectedClient) {
             axios.get('http://127.0.0.1:8000/api/articles').then(res => {
@@ -67,7 +66,7 @@ const AddArticle = () => {
     };
 
     return (
-        /* ✅ 7iyedna marginLeft: '260px' o derna w-100 bach t-ched blast-ha mzyan */
+
         <div className="p-4 w-100" style={{ backgroundColor: '#F8F9FA', minHeight: '100vh' }}>
             <div className="card border-0 shadow-sm rounded-4 p-4 mx-auto" style={{ maxWidth: '900px' }}>
                 <h3 className="fw-bold mb-4 text-primary">
@@ -75,7 +74,7 @@ const AddArticle = () => {
                 </h3>
                 
                 <form onSubmit={handleSubmit}>
-                    {/* Choix du Client */}
+                  
                     <div className="mb-4">
                         <label className="form-label fw-bold">Choisir un Client</label>
                         <select className="form-select border-2" value={selectedClient} onChange={(e) => setSelectedClient(e.target.value)} required>
@@ -84,7 +83,7 @@ const AddArticle = () => {
                         </select>
                     </div>
 
-                    {/* Radio Buttons Mode */}
+               
                     {clientArticles.length > 0 && (
                         <div className="alert alert-light border border-info border-start-4 mb-4 shadow-sm">
                             <label className="d-block mb-2 text-dark fw-bold">
@@ -103,7 +102,7 @@ const AddArticle = () => {
                         </div>
                     )}
 
-                    {/* Select Article existant */}
+                   
                     {mode === 'update' && (
                         <div className="mb-4 animate__animated animate__fadeIn">
                             <label className="form-label fw-bold text-info">Choisir l'article à modifier</label>
@@ -114,7 +113,7 @@ const AddArticle = () => {
                         </div>
                     )}
 
-                    {/* Inputs standard */}
+                 
                     <div className="row g-3">
                         <div className="col-md-6 mb-3">
                             <label className="form-label fw-bold">Nom de l'article</label>
@@ -140,7 +139,6 @@ const AddArticle = () => {
                         </div>
                     </div>
 
-                    {/* MULTIPLE IMAGES */}
                     <div className="mb-4">
                         <label className="form-label fw-bold">Images (Plusieurs choix possibles)</label>
                         <input type="file" className="form-control border-2 shadow-sm" multiple onChange={(e) => setImages(e.target.files)} />

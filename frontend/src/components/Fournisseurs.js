@@ -28,7 +28,7 @@ const Fournisseurs = () => {
     <div className="p-4" style={{  backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
       <h2 className="mb-4 fw-bold">🚚 Gestion des Fournisseurs</h2>
       
-      {/* 🟦 Stats Card (Kima f image ff7a68.png) */}
+      
       <div className="row mb-4">
         <div className="col-md-4">
           <div className="card shadow-sm border-0 rounded-4 p-3 bg-primary text-white text-center">
@@ -38,7 +38,7 @@ const Fournisseurs = () => {
         </div>
       </div>
 
-      {/* ➕ Formulaire d'ajout (Hna fin kiy-tra l-ghalat) */}
+
       <div className="card shadow-sm p-4 border-0 rounded-4 bg-white mb-4">
         <h6 className="mb-3 fw-bold text-muted"><span className="text-primary">+</span> Ajouter un fournisseur</h6>
         <form onSubmit={handleSubmit} className="row g-2">
@@ -64,7 +64,7 @@ const Fournisseurs = () => {
         </form>
       </div>
 
-      {/* 📋 Table des Fournisseurs */}
+      
       <div className="card shadow-sm border-0 rounded-4 overflow-hidden bg-white">
         <table className="table mb-0 align-middle">
           <thead className="bg-dark text-white">

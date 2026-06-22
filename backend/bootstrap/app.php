@@ -12,7 +12,6 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Zidi had l-khat bach t-sm-hi l-React (CORS)
         $middleware->validateCsrfTokens(except: [
             'api/*'
         ]);
@@ -21,6 +20,3 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
-    Route::options('/{any}', function () {
-    return response()->json([], 200);
-})->where('any', '.*');

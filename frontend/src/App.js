@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
+import axios from 'axios';
 // Components
 import Sidebar from './components/Sidebar';
 import Login from './components/Login';
@@ -24,23 +24,36 @@ import Mouvements from './pages/Mouvements';
 import Stock from './pages/Stock';
 import DetailClient from './pages/DetailClient';
 import Historique from './pages/Historique';
+import GestionAdmins from './pages/GestionAdmins';
+import MonStock from './pages/MonStock';
+import AccueilClient from './pages/AccueilClient';
+import Chatbot from './components/Chatbot';
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  const noSidebarRoutes = ['/login', '/', '/register'];
-  const showSidebar = !noSidebarRoutes.includes(location.pathname);
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  
+  const noSidebarRoutes = ['/login', '/', '/register', '/mon-stock', '/accueil-client'];
+  const showSidebar = !noSidebarRoutes.includes(location.pathname) 
+                      && user.role !== 'client';
+
+  // Machi katban f login u register
+  const showChatbot = !['/login', '/', '/register'].includes(location.pathname);
 
   return (
     <div className="d-flex min-vh-100 bg-light w-100 m-0 p-0">
       {showSidebar && <Sidebar />}
-      {/* flex-grow-1 bach l-content i-ched ga3 blassa li bqat nichan 7da sidebar */}
       <div className="flex-grow-1 w-100 overflow-hidden d-flex flex-column">
         {children}
       </div>
+      {showChatbot && <Chatbot />} {/* ← hna */}
     </div>
   );
 };
-
+const token = localStorage.getItem('token');
+if (token) {
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+};
 const App = () => {
   return (
     <Router>
@@ -66,6 +79,11 @@ const App = () => {
           <Route path="/stock" element={<Stock />} />
           <Route path="/stock/client/:id" element={<DetailClient />} />
           <Route path="/historique" element={<Historique />} />
+          <Route path="/gestion-admins" element={<GestionAdmins />} />
+          <Route path="/mon-stock" element={<MonStock />} />
+
+<Route path="/accueil-client" element={<AccueilClient />} />
+
         </Routes>
       </Layout>
     </Router>

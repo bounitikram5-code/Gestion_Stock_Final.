@@ -24,7 +24,7 @@ const EditClient = () => {
 
   const API_BASE_URL = "http://127.0.0.1:8000";
 
-  // 1. Kan-jibou l-m3loumat dyal l-client l-9dim
+  
   useEffect(() => {
     setLoading(true);
     axios.get(`${API_BASE_URL}/api/clients/${id}`)
@@ -63,12 +63,12 @@ const EditClient = () => {
     }
   };
 
-  // 2. Traitement dyal Formulaire Modification
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     const data = new FormData();
-    // ⚠️ Hada darori f Laravel bach i-fhem bli rahaa Modification (PUT) wakha n-siftoha b POST
+    
     data.append('_method', 'PUT'); 
     
     data.append('nom', formData.nom);
@@ -86,7 +86,7 @@ const EditClient = () => {
     }
 
     try {
-      // Kan-sifto b POST walakin 3ndna _method = PUT f l-FormData
+    
       await axios.post(`${API_BASE_URL}/api/clients/${id}`, data, {
         headers: { 
           'Content-Type': 'multipart/form-data',
@@ -94,7 +94,7 @@ const EditClient = () => {
         }
       });
       
-      // ✨ Redirection s-shiha l l-panneau d'administration dyalk
+
       navigate('/clients/gestion'); 
     } catch (err) {
       console.error("Erreur lors de la modification:", err.response ? err.response.data : err);
@@ -113,7 +113,7 @@ const EditClient = () => {
   if (error) return (
     <div className="alert alert-danger m-5 text-center" role="alert">
       {error} <br />
-      {/* ✨ Redirection hna hta hiya l l-page s-shiha */}
+     
       <button className="btn btn-outline-danger btn-sm mt-3" onClick={() => navigate('/clients/gestion')}>Retour</button>
     </div>
   );
@@ -128,7 +128,7 @@ const EditClient = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
-          {/* 📸 Upload Section dyal l-Logo */}
+         
           <div className="text-center mb-5">
             <div className="position-relative d-inline-block">
               <div className="rounded-circle bg-light border d-flex align-items-center justify-content-center overflow-hidden shadow-xs" 
@@ -148,7 +148,7 @@ const EditClient = () => {
             <div className="text-muted small mt-2" style={{ fontSize: '11px' }}>Modifier le Logo</div>
           </div>
 
-          {/* 🏢 Section 1: Informations Générales */}
+
           <h5 className="fw-bold text-primary border-bottom pb-2 mb-4" style={{ fontSize: '15px' }}>
             <i className="bi bi-info-circle me-2"></i> Identité de l'Entreprise
           </h5>
@@ -181,7 +181,7 @@ const EditClient = () => {
             </div>
           </div>
 
-          {/* ⚖️ Section 2: Données Fiscales Marocaines */}
+     
           <h5 className="fw-bold text-primary border-bottom pb-2 mb-4" style={{ fontSize: '15px' }}>
             <i className="bi bi-file-earmark-check me-2"></i> Identifiants Fiscaux Légaux (Maroc)
           </h5>
@@ -209,9 +209,8 @@ const EditClient = () => {
             </div>
           </div>
 
-          {/* 🔘 Form Actions */}
           <div className="d-flex align-items-center justify-content-end gap-3 border-top pt-4">
-            {/* ✨ Hna hta f Annuler ghadi yrj3ek nishan l s-sfha s-shiha */}
+           
             <button type="button" className="btn btn-light px-4 py-2 rounded-pill fw-semibold border text-secondary" onClick={() => navigate('/clients/gestion')}>
               Annuler
             </button>

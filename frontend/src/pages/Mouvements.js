@@ -17,18 +17,18 @@ const Mouvements = () => {
 
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // 1. جلب كاع الكليان ف الدقة الأولى
+ 
   useEffect(() => {
     axios.get('http://localhost:8000/api/clients')
          .then(res => setClients(res.data))
          .catch(err => console.error(err));
   }, []);
 
-  // 2. 🔄 هاد الـ Effect كيخدم غير فاش كيتغير الكليان ف لـ Form
+ 
   useEffect(() => {
     if (formData.client_id) {
       setLoadingArticles(true);
-      // كيمشي يجيب غيير السلع ديال هاد الكليان
+ 
       axios.get(`http://localhost:8000/api/clients/${formData.client_id}/articles`)
            .then(res => {
              setFilteredArticles(res.data);
@@ -37,16 +37,14 @@ const Mouvements = () => {
            .catch(err => {
              console.error("Erreur fetching articles pour ce client", err);
              setLoadingArticles(false);
-             // كإجراء احتياطي يلا وقع مشكل ف الـ API د لافيل
-             setFilteredArticles([
+                    setFilteredArticles([
                { id: 1, nom: 'Article Référence A-100 (Stock local)' },
                { id: 2, nom: 'Composant Électronique B-45' }
              ]);
            });
     } else {
-      setFilteredArticles([]); // يلا ماختاريتيش كليان، الـ select د السلعة كيبقا خاوي
+      setFilteredArticles([]); 
     }
-    // خوي اختيار السلعة القديم حيت تبدل الكليان
     setFormData(prev => ({ ...prev, article_id: '' }));
   }, [formData.client_id]);
 
@@ -83,7 +81,7 @@ const Mouvements = () => {
       if (err.response && err.response.data.error) {
         alert(err.response.data.error); 
       } else {
-        // Mode Démo للأستاذ
+        
         const demoBon = {
           id: `BON-${Math.floor(1000 + Math.random() * 9000)}`,
           article_nom: articleNom,
@@ -105,12 +103,12 @@ const Mouvements = () => {
     <div className="w-100 preview-container" style={{ backgroundColor: '#F8FAFC', minHeight: '100vh', padding: '25px', fontFamily: '"Inter", sans-serif' }}>
       
       <div className="mb-4 no-print">
-        <h4 className="fw-bold text-dark m-0">Flux & Mouvements de Stock سيلكتيف</h4>
-        <p className="text-muted small m-0 mt-1">السلع تظهر بشكل تلقائي وديناميكي حسب الكليان المختار فقط.</p>
+        <h4 className="fw-bold text-dark m-0">Flux & Mouvements de Stock</h4>
+        <p className="text-muted small m-0 mt-1"></p>
       </div>
 
       <div className="row g-4 no-print">
-        {/* الفورم */}
+       
         <div className="col-12 col-lg-5">
           <div className="card border rounded-4 p-4 bg-white shadow-sm position-relative overflow-hidden">
             
@@ -122,7 +120,7 @@ const Mouvements = () => {
             )}
 
             <form onSubmit={handleSubmit}>
-              {/* 1. اختيار الكليان */}
+           
               <div className="mb-3">
                 <label className="form-label small fw-semibold text-secondary">Sélectionner le Client B2B</label>
                 <select className="form-select rounded-3 py-2" required
@@ -134,7 +132,6 @@ const Mouvements = () => {
                 </select>
               </div>
 
-              {/* 2. اختيار السلعة (ديناميكي) */}
               <div className="mb-3">
                 <label className="form-label small fw-semibold text-secondary">
                   Article associé {loadingArticles && <span className="spinner-border spinner-border-sm text-primary ms-2"></span>}
@@ -157,7 +154,6 @@ const Mouvements = () => {
                 </select>
               </div>
 
-              {/* Action */}
               <div className="mb-3">
                 <label className="form-label small fw-semibold text-secondary">Action sur Stock</label>
                 <select className="form-select rounded-3 py-2 fw-semibold"
@@ -187,7 +183,7 @@ const Mouvements = () => {
           </div>
         </div>
 
-        {/* الـ Bon المقابل لـ الحفظ والتحميل */}
+
         <div className="col-12 col-lg-7">
           {activeBon ? (
             <div className="card border rounded-4 p-4 bg-white shadow-sm d-flex flex-column" style={{ minHeight: '430px' }}>
@@ -198,7 +194,7 @@ const Mouvements = () => {
                 </button>
               </div>
 
-              {/* تصميم الـ Bon نقي */}
+              
               <div className="p-4 rounded-3 border bg-light flex-grow-1 font-monospace text-dark" style={{ borderStyle: 'dashed', fontSize: '13px' }}>
                 <div className="text-center mb-4">
                   <h5 className="fw-bold m-0">ISAG STOCK MANAGEMENT</h5>
@@ -252,7 +248,7 @@ const Mouvements = () => {
         </div>
       </div>
 
-      {/* الجزء المخصص للطباعة كـ PDF (يخفي كل شيء ويظهر الفاتورة فقط) */}
+
       {activeBon && (
         <div className="print-only-section font-monospace p-5 bg-white text-dark">
           <center>

@@ -4,8 +4,7 @@ const ArticleDetails = ({ article, onClose }) => {
     console.log("Data dyal l-article f details:", article); // <--- Zidi had l-line
     
     if (!article) return null;
-    // ... rest of code
-    // --- FIX DIAL T-SWAR ---
+  
     const imageData = article.image || article.images || [];
     
     const allImages = Array.isArray(imageData) 
@@ -24,7 +23,7 @@ const ArticleDetails = ({ article, onClose }) => {
                     
                     <div className="modal-body p-4">
                         <div className="row">
-                            {/* SECTION IMAGES */}
+                            
                             <div className="col-md-6 mb-3">
                                 {allImages.length > 0 ? (
                                     <div id="carouselExample" className="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
@@ -61,7 +60,6 @@ const ArticleDetails = ({ article, onClose }) => {
                                     </div>
                                 )}
 
-                                {/* --- JDID: SECTION VARIANTES (T-sawer s-sghar) --- */}
                                 <div className="mt-3 d-flex gap-2 justify-content-center flex-wrap">
                                     {article.variantes && (
                                         (typeof article.variantes === 'string' 
@@ -85,7 +83,7 @@ const ArticleDetails = ({ article, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* SECTION INFOS */}
+             
                             <div className="col-md-6">
                                 <h3 className="fw-bold text-dark mb-1 text-capitalize">{article.nom}</h3>
                                 <span className="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3">
@@ -109,7 +107,7 @@ const ArticleDetails = ({ article, onClose }) => {
                                     </div>
                                 </div>
 
-                                {/* Affichage simple des stocks par taille si dispo */}
+                               
                                 <div className="mt-3">
                                     <h6 className="fw-bold small text-muted text-uppercase">Disponibilité par Taille :</h6>
                                     <div className="d-flex gap-2 mt-2">

@@ -7,9 +7,9 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // Hna katsifti l-data l-backend (POST /api/register)
+    
     alert("Compte créé avec succès!");
-    navigate('/login'); // Melli i-tsajjel i-mchi l-login
+    navigate('/login'); 
   };
 
   return (

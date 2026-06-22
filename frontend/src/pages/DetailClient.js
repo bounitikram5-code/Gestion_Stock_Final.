@@ -10,7 +10,7 @@ const DetailClient = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    // تأكد أن الـ API كيرجع بيانات مهيكلة
+   
     axios.get(`http://127.0.0.1:8000/api/stock-par-client`)
       .then(res => {
         const found = res.data.find(c => c.id === parseInt(id));
