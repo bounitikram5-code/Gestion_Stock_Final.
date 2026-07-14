@@ -197,7 +197,7 @@ const Mouvements = () => {
               
               <div className="p-4 rounded-3 border bg-light flex-grow-1 font-monospace text-dark" style={{ borderStyle: 'dashed', fontSize: '13px' }}>
                 <div className="text-center mb-4">
-                  <h5 className="fw-bold m-0">ISAG STOCK MANAGEMENT</h5>
+                  <h5 className="fw-bold m-0">GESTION DE STOCK MANAGEMENT</h5>
                   <small className="text-muted">Fiche Mouvement Sélective</small>
                 </div>
 

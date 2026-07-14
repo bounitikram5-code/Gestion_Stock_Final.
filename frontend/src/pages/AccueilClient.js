@@ -78,7 +78,7 @@ const AccueilClient = () => {
               <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
           </div>
-          <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: -0.3 }}>ISAG STOCK</span>
+          <span style={{ fontWeight: 700, fontSize: 15, letterSpacing: -0.3 }}>GESTION DE STOCK</span>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>

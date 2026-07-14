@@ -19,7 +19,7 @@ import AddClient from './components/AddClient';
 import EditClient from './components/EditClient';
 import ClientDetails from './components/ClientDetails';
 import GestionClients from './components/GestionClients';
-import Fournisseurs from './components/Fournisseurs';
+
 import Mouvements from './pages/Mouvements';
 import Stock from './pages/Stock';
 import DetailClient from './pages/DetailClient';
@@ -74,7 +74,7 @@ const App = () => {
           <Route path="/clients/:id" element={<ClientDetails />} />
           <Route path="/clients/gestion" element={<GestionClients />} />
 
-          <Route path="/fournisseurs" element={<Fournisseurs />} />
+         
           <Route path="/mouvements" element={<Mouvements />} />
           <Route path="/stock" element={<Stock />} />
           <Route path="/stock/client/:id" element={<DetailClient />} />

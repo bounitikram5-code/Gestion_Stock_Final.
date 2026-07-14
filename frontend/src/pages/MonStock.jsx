@@ -94,7 +94,7 @@ const MonStock = () => {
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: 15, letterSpacing: -0.3 }}>ISAG STOCK</div>
+            <div style={{ fontWeight: 700, fontSize: 15, letterSpacing: -0.3 }}>GESTION SE STOCK</div>
             <div style={{ fontSize: 10, color: C.textSub, textTransform: 'uppercase', letterSpacing: '.5px' }}>Espace client</div>
           </div>
         </div>

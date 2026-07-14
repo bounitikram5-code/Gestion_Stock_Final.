@@ -18,8 +18,7 @@ class Client extends Model
 
 // Client.php - relation
 public function articles() {
-    return $this->belongsToMany(Article::class, 'mouvements', 'client_id', 'article_id')
-                ->withPivot('quantite'); // ✅ 'quantite' mchi 'quantite_stock'
+    return $this->hasMany(Article::class,  'client_id'); // ✅ 'quantite' mchi 'quantite_stock'
 }
 public function mouvements() {
     return $this->hasMany(Mouvement::class, 'client_id');

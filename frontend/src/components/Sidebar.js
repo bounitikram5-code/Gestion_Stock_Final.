@@ -59,10 +59,12 @@ const Sidebar = () => {
 
   const menuItems = [
     { name: 'Dashboard',      path: '/dashboard',       icon: Icons.dashboard },
-    { name: 'Articles',       path: '/articles',        icon: Icons.articles },
+     { name: 'Gestion Clients',path: '/clients/gestion', icon: Icons.gestion },
     { name: 'Clients',        path: '/clients',         icon: Icons.clients },
-    { name: 'Gestion Clients',path: '/clients/gestion', icon: Icons.gestion },
-    { name: 'Fournisseurs',   path: '/fournisseurs',    icon: Icons.fournisseurs },
+    { name: 'Articles',       path: '/articles',        icon: Icons.articles },
+    
+   
+    
     { name: 'Mouvements',     path: '/mouvements',      icon: Icons.mouvements },
     { name: 'Stock',          path: '/stock',           icon: Icons.stock },
     { name: 'Historique',     path: '/historique',      icon: Icons.historique },
@@ -120,7 +122,7 @@ const Sidebar = () => {
             </div>
             <div>
               <div style={{ fontWeight: 700, fontSize: 15, color: C.text, letterSpacing: -0.3 }}>
-                ISAG STOCK
+                GESTION DE STOCK
               </div>
               <div style={{
                 fontSize: 10, color: C.textSub,
